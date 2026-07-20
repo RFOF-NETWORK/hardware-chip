@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gehäuse-Konstruktion</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; padding: 5%; }
+        .box { background: #161b22; padding: 25px; border-radius: 8px; border: 1px solid #30363d; max-width: 750px; margin: auto; }
+        .back { color: #58a6ff; text-decoration: none; display: inline-block; margin-bottom: 20px; font-weight: bold; }
+        .scene { width: 200px; height: 200px; margin: 40px auto; perspective: 400px; }
+        .cube { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transform: rotateX(-20deg) rotateY(45deg); animation: spin 10s infinite linear; }
+        .face { position: absolute; width: 200px; height: 200px; background: rgba(35, 134, 54, 0.8); border: 2px solid #58a6ff; line-height: 200px; text-align: center; font-weight: bold; color: #fff; }
+        .front  { transform: rotateY(  0deg) translateZ(100px); }
+        .back-f { transform: rotateY(180deg) translateZ(100px); background: rgba(22, 27, 34, 0.9); }
+        .top    { transform: rotateX( 90deg) translateZ(100px); }
+        .bottom { transform: rotateX(-90deg) translateZ(100px); }
+        @keyframes spin { from { transform: rotateX(-20deg) rotateY(0deg); } to { transform: rotateX(-20deg) rotateY(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a class="back" href="../index.html">🏠 Zurück zum Hauptmenü</a>
+        <h2>Gehäuse-Konstruktionsbereich (Enclosure)</h2>
+        <p>Mechanische Validierung des QFN-Chipgehäuses (5mm x 5mm) im Raum.</p>
+        
+        <div class="scene">
+            <div class="cube">
+                <div class="face front">CHIP CORE</div>
+                <div class="face back-f">ALU BACK</div>
+                <div class="face top">TOP SHIELD</div>
+                <div class="face bottom">PINS</div>
+            </div>
+        </div>
+        <p style="text-align:center; font-size: 12px; color: #8b949e;">[3D-Monolith: Rotations-Vorschau der Silizium-Kapselung]</p>
+    </div>
+</body>
+</html>
