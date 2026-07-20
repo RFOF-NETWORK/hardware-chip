@@ -1,0 +1,14 @@
+# Produktions-Manifest fuer das erste urspruengliche Repository
+project:
+  wo_title:        "Monolithisches JK-Flipflop ASIC"
+  description:     "Physisches Halbleiter-Layout fuer ein einzelnes Bit-Register"
+  how_it_works:    "Reine logische Gatter-Verschaltung ueber Verilog-Synthese fuer SkyWater 130nm"
+  language:        "Verilog"
+
+# Physische Pin-Belegung des Mikrochips
+inputs:
+  - clk            # Globaler Hardware-Takt
+  - j              # Logischer Set-Eingang
+  - k              # Logischer Reset-Eingang
+outputs:
+  - q              # Gespeichertes Daten-Bit
