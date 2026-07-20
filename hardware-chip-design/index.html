@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Chip Hardware Cockpit</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; padding: 5%; }
+        .box { background: #161b22; padding: 25px; border-radius: 8px; border: 1px solid #30363d; max-width: 800px; margin: auto; }
+        .chip-graphic { background: #090d13; border: 2px dashed #238636; padding: 20px; border-radius: 6px; text-align: center; margin: 20px 0; color: #7ee787; }
+        .back { color: #58a6ff; text-decoration: none; display: inline-block; margin-bottom: 20px; font-weight: bold; }
+        ul { line-height: 1.6; }
+        span.highlight { color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a class="back" href="../index.html">🏠 Zurück zum Hauptmenü</a>
+        <h2>Halbleiter-Spezifikation (SkyWater 130nm)</h2>
+        <p>Übersicht der physischen Logik-Gatter auf dem belichteten Silizium-Wafer.</p>
+        
+        <div class="chip-graphic">
+            ===========================================<br>
+            || [CLK] [RST] [J] [K] (Eingangs-Pins)  ||<br>
+            ||                                       ||<br>
+            ||       MONOLITHISCHES J.K.-FLIPFLOP     ||<br>
+            ||       (Physikalischer Bit-Speicher)   ||<br>
+            ||                                       ||<br>
+            ||              [OUTPUT Q]               ||<br>
+            ===========================================
+        </div>
+
+        <h3>Architektur-Details des Quellcodes:</h3>
+        <ul>
+            <li><span class="highlight">Datei "jk_flipflop.v":</span> Enthält das synthesefähige Verilog-Hardwaremodell.</li>
+            <li><span class="highlight">Gatter-Logik:</span> Arbeitet flankengesteuert bei steigendem Takt-Signal.</li>
+            <li><span class="highlight">Zustands-Semantik:</span> J=1/K=1 erzwingt ein atomares Invertieren (Toggle) des Speicherzustands.</li>
+        </ul>
+    </div>
+</body>
+</html>
