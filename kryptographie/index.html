@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kryptographie-Zentrum</title>
+    <style>
+        body { background: #0d1117; color: #c9d1d9; font-family: monospace; padding: 5%; }
+        .box { background: #161b22; padding: 25px; border-radius: 8px; border: 1px solid #30363d; max-width: 700px; margin: auto; }
+        input, button { background: #21262d; color: #fff; border: 1px solid #30363d; padding: 10px; border-radius: 4px; width: 100%; box-sizing: border-box; margin-bottom: 15px; }
+        button { background: #238636; cursor: pointer; font-weight: bold; }
+        .output { background: #0d1117; padding: 15px; border-radius: 4px; border: 1px solid #30363d; word-break: break-all; color: #7ee787; }
+        .back { color: #58a6ff; text-decoration: none; display: inline-block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a class="back" href="../index.html">🏠 Zurück zum Hauptmenü</a>
+        <h2>Lokal-monolithische Kryptographie</h2>
+        
+        <label>Klartext eingeben:</label>
+        <input type="text" id="cryptoInput" value="Elite Codierer 2026">
+        
+        <button onclick="berechneSha256()">Generiere SHA-256 Hash</button>
+        <div class="output" id="hashOutput">Hash erscheint hier...</div>
+    </div>
+
+    <script>
+        async function berechneSha256() {
+            const text = document.getElementById('cryptoInput').value;
+            const msgBuffer = new TextEncoder().encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            document.getElementById('hashOutput').innerText = hashHex;
+        }
+    </script>
+</body>
+</html>
